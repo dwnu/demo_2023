@@ -2,15 +2,12 @@
 
 Demo of my current architecture approach.
 
-## Getting Started
+## Notes
 
-This project is a starting point for a Flutter application.
+- Nothing matters if the team is not on the same page. Being open-minded and also sticking to conventions is crucial.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- I'm fan of atomic commits. In this repository you won't find it, unfortunately. 
+- The presentation layer is extremely simple. The focus went into other layers. 
+- I value unit tests. Integration and widget tests not so much but of course they also have their place in some cases ;) 
+- I know bloc, provider, and riverpod and used them commercially but I slightly prefer riverpod over others.
+- Strict lint rules are the way to go <3
