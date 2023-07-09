@@ -1,0 +1,74 @@
+# enable all rules by default
+include: all_lint_rules.yaml
+
+analyzer:
+  exclude:
+    - '**/*.g.dart'
+    - '**/*.freezed.dart'
+
+  plugins:
+    - custom_lint
+
+  language:
+    strict-casts: true
+    strict-raw-types: true
+
+  errors:
+    # Otherwise, cause the import of all_lint_rules to warn because of some rules conflicts.
+    # The conflicts are fixed in this file instead, so we can safely ignore the warning.
+    included_file_warning: ignore
+
+    # Treat missing required parameters as an error.
+    missing_required_param: error
+
+    # Allow having TODOs in the code.
+    todo: ignore
+
+    # Required if Freezed is used with json_serializable
+    invalid_annotation_target: ignore
+
+# Explicitly disable only the rules we don't want.
+linter:
+  rules:
+    # Conflicts with 'omit_local_variable_types'.
+    # https://dart-lang.github.io/linter/lints/always_specify_types.html
+    always_specify_types: false
+
+    # Conflicts with 'implicit-dynamic' when false.
+    avoid_annotating_with_dynamic: false
+
+    # Allow using classes with only static members.
+    avoid_classes_with_only_static_members: false
+
+    # Conflicts with 'prefer_single_quotes'.
+    prefer_double_quotes: false
+
+    # Not quite suitable for Flutter, which may have a method with a single return, but that return is complex.
+    prefer_expression_function_bodies: false
+
+    # Conflicts with 'always_use_package_imports'.
+    prefer_relative_imports: false
+
+    # Disabling it avoid redundant comments.
+    public_member_api_docs: false
+
+    # Conflicts with 'prefer_final_locals'.
+    unnecessary_final: false
+
+    # Boilerplate.
+    prefer_final_parameters: false
+
+    # Not always preferred.
+    avoid_catches_without_on_clauses: false
+
+    # Boilerplate.
+    diagnostic_describe_all_properties: false
+
+    # Frustrating sometimes.
+    avoid_setters_without_getters: false
+
+    # Frustrating sometimes.
+    one_member_abstracts: false
+
+    # Use 100-character limit for this project
+    lines_longer_than_80_chars: false
